@@ -59,7 +59,12 @@ def init():
             return render_template("init.html")
         else:
             pw_hash = generate_hash(pw)
-            user = User(id=1, username=username, email=email, password_hash=pw_hash)
+            user = User(
+                id=1,
+                username=username,
+                email=email,
+                password_hash=pw_hash
+            )
             db.session.add(user)
             db.session.commit()
             return redirect("login")
