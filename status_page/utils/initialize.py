@@ -40,7 +40,8 @@ def initialize_app():
             pkg_resources.get_distribution("status-page").version
         return {
             "version": version,
-            "env": app.env
+            "env": app.env,
+            "str": str
         }
 
     load_routes()

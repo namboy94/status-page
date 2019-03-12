@@ -18,8 +18,10 @@ along with status-page.  If not, see <http://www.gnu.org/licenses/>.
 LICENSE"""
 
 from status_page import app, db
+from status_page.config import server_list_config
 from status_page.models.User import User
 from status_page.utils.crypto import verify_password, generate_hash
+from status_page.analytics import generate_analytics_data
 from flask import render_template, redirect, request
 from flask_login import login_required, current_user, login_user
 
@@ -110,4 +112,5 @@ def display():
     The main page of the application
     :return: The generated HTML
     """
-    return render_template("display.html")
+    display_data = generate_analytics_data(server_list_config)
+    return render_template("display.html", display_data=display_data)

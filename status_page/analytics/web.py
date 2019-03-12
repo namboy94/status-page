@@ -1,4 +1,4 @@
-{#
+"""LICENSE
 Copyright 2019 Hermann Krumrey <hermann@krumreyh.com>
 
 This file is part of status-page.
@@ -15,26 +15,16 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with status-page.  If not, see <http://www.gnu.org/licenses/>.
-#}
+LICENSE"""
 
-{% extends "base.html" %}
-{% block body %}
-    <table>
-        <tr>
-            <th>Device</th>
-            <th>Online?</th>
-            <th>Up-To-Date?</th>
-        </tr>
-        {% for server, data in display_data.items() %}
-            <tr>
-                <td>{{server}}</td>
-                <td class="{{str(data["is_up"]).lower()}}">{{data["is_up"]}}</td>
-                {% if data.get("version") %}
-                    <td>{{data["version"]}}</td>
-                {% else %}
-                    <td>N/A</td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-    </table>
-{% endblock %}
+import requests
+
+
+def test_webpage(address: str) -> bool:
+    """
+    Checks whether or not a web page is accesible
+    :param address: The address to check
+    :return: True if the web page is accessible (Code 200), else False.
+    """
+    resp = requests.get("https://{}".format(address))
+    return resp.status_code == 200
