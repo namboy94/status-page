@@ -27,6 +27,7 @@ unittest:
 deploy_production:
   stage: deploy
   only:
+    - develop
     - master
   tags:
     - python3
