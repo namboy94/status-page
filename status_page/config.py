@@ -41,7 +41,7 @@ server_list_config = json.loads(resolve_env_variable(
     "SERVER_LIST_CONFIG", default=json.dumps(default_list_config)
 ))
 """
-The JSON-format configuration for the application, 
+The JSON-format configuration for the application,
 """
 
 
