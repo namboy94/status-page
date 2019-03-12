@@ -39,8 +39,6 @@ def generate_secrets(prompt: bool):
         "SMTP_ADDRESS",
         "SMTP_PORT",
         "SMTP_PASSWORD",
-        "RECAPTCHA_SECRET_KEY",
-        "RECAPTCHA_SITE_KEY",
         "FLASK_SECRET"
     ]:
         if key not in os.environ and prompt:
