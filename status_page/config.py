@@ -55,18 +55,6 @@ smtp_password = resolve_env_variable("SMTP_PASSWORD")
 The password of the SMTP account
 """
 
-recaptcha_site_key = resolve_env_variable(
-    "RECAPTCHA_SITE_KEY", default="6Le5xGkUAAAAABOfWC_-qAxU0vVCnHGHQPdpVv-_"
-)
-"""
-The (public) recaptcha site key
-"""
-
-recaptcha_secret_key = resolve_env_variable("RECAPTCHA_SECRET_KEY")
-"""
-The secret recaptcha key used to validate the recaptcha result
-"""
-
 db_user = resolve_env_variable("DB_USER")
 """
 The database user
