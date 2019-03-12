@@ -42,6 +42,8 @@ if __name__ == "__main__":
             "bcrypt",
             "werkzeug",
             "flask_login",
+            "flask_sqlalchemy",
+            "sqlalchemy",
             "flask"
         ],
         include_package_data=True,
