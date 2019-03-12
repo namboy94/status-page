@@ -42,7 +42,7 @@ def port_ping(address: str, port: int) -> bool:
     :return: Whether or not the device responds to the ping
     """
     try:
-        response = check_output(["nmap", "-p", str(port), address])
-        return "open" in response.decode("utf-8")
+        response = check_output(["nmap", "-p", str(port), address, "-Pn"])
+        return "Host is up" in response.decode("utf-8")
     except CalledProcessError:
         return False

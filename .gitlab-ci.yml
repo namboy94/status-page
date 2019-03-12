@@ -31,6 +31,7 @@ deploy_production:
   tags:
     - python3
     - status-page
+    - nmap
   script:
     - python3 -m venv virtual && source virtual/bin/activate && pip install ci-scripts
     - deploy-flask $STATUS_PAGE_HOME
