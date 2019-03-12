@@ -18,6 +18,7 @@ along with status-page.  If not, see <http://www.gnu.org/licenses/>.
 LICENSE"""
 
 import os
+import json
 from status_page.utils.env import resolve_env_variable, load_secrets
 
 """
@@ -31,6 +32,17 @@ secrets_file = os.path.join(
 )
 if os.path.isfile(secrets_file):
     load_secrets(secrets_file)
+
+
+default_list_config = {
+    "Example": {"address": "example.com", "actions": ["ping"]}
+}
+server_list_config = json.loads(resolve_env_variable(
+    "SERVER_LIST_CONFIG", default=json.dumps(default_list_config)
+))
+"""
+The JSON-format configuration for the application, 
+"""
 
 
 smtp_address = resolve_env_variable(

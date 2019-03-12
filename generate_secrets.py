@@ -39,7 +39,8 @@ def generate_secrets(prompt: bool):
         "SMTP_ADDRESS",
         "SMTP_PORT",
         "SMTP_PASSWORD",
-        "FLASK_SECRET"
+        "FLASK_SECRET",
+        "SERVER_LIST_CONFIG"
     ]:
         if key not in os.environ and prompt:
             value = input("{} is missing, set manually: ".format(key))

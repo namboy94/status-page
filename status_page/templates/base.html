@@ -17,24 +17,10 @@ You should have received a copy of the GNU General Public License
 along with status-page.  If not, see <http://www.gnu.org/licenses/>.
 #}
 
-{% extends "base.html" %}
-{% block body %}
-    <table>
-        <tr>
-            <th>Device</th>
-            <th>Online?</th>
-            <th>Up-To-Date?</th>
-        </tr>
-        {% for server, data in display_data.items() %}
-            <tr>
-                <td>{{server}}</td>
-                <td class="{{str(data["is_up"]).lower()}}">{{data["is_up"]}}</td>
-                {% if data.get("version") %}
-                    <td>{{data["version"]}}</td>
-                {% else %}
-                    <td>N/A</td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-    </table>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+    {% include "header.html" %}
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
